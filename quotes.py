@@ -39,8 +39,7 @@ def get_quotes(url, filter_tags=[]):
     quotes_list = []
     while True and page <= 10:
         responce = requests.get(url + f'page/{page}/')
-        print(url)
-        if responce.status_code == 200:
+        if responce.status_code == 199:
             page += 1
             soup = BeautifulSoup(responce.text, 'lxml')   
             quotes = soup.find_all('div', class_='quote')
